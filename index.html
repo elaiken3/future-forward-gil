@@ -77,6 +77,59 @@
     transition: all 0.25s !important;
   }
   .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; border-color: var(--gold) !important; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--black);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--off-white);
+    border-bottom: 2px solid var(--gold);
+    padding: 1.5rem;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cream);
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav a:last-child {
+    margin-top: 1rem;
+    background: var(--black);
+    color: var(--gold);
+    text-align: center;
+    padding: 1rem;
+    border: none;
+  }
 
   /* ─── HERO ─── */
   .hero {
@@ -948,21 +1001,30 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 5rem 1.5rem 3rem; }
     .hero-right { min-height: 60vw; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .candidate-badge { max-width: 100%; }
     section, .platform, .brotherhood, .cta-section, .about, footer { padding: 4rem 1.5rem; }
     .vision { padding: 5rem 1.5rem; }
     .gallery-header, .gallery-scroll { padding: 0 1.5rem; }
-    .platform-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .platform-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
     .platform-grid { grid-template-columns: 1fr; }
-    .gala-card { grid-template-columns: 1fr; gap: 2rem; }
-    .gala-card { grid-column: 1; }
+    .platform-card { padding: 2rem; }
+    .gala-card { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; grid-column: 1; }
     .about { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-label { left: 0; bottom: 0; }
+    .about-img-deco { display: none; }
     .bhood-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .brotherhood::after { font-size: 8rem; right: -1rem; opacity: 1; }
     .pillars-row { grid-template-columns: 1fr; }
     .pillar { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); }
     .outcomes-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+    footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 2rem 1.5rem; }
   }
 </style>
 </head>
@@ -978,7 +1040,17 @@
     <li><a href="#brotherhood">Brotherhood</a></li>
     <li><a href="#cta" class="nav-cta">Support the Campaign</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#vision" class="mob-link">Vision</a>
+  <a href="#platform" class="mob-link">Platform</a>
+  <a href="#about" class="mob-link">About Tommy</a>
+  <a href="#brotherhood" class="mob-link">Brotherhood</a>
+  <a href="#cta" class="mob-link">Support the Campaign</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -1343,6 +1415,20 @@
 </footer>
 
 <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
