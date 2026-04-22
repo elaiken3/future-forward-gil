@@ -661,22 +661,24 @@
     scroll-snap-type: x mandatory;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    height: 440px;
+    align-items: stretch;
   }
   .gallery-scroll::-webkit-scrollbar { display: none; }
   .gallery-item {
-    flex: 0 0 340px;
-    height: 420px;
+    flex: 0 0 auto;
+    height: 100%;
     scroll-snap-align: start;
     position: relative;
     overflow: hidden;
     background: var(--black);
   }
   .gallery-item img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: contain;
-    background: var(--black);
-    opacity: 0.92;
+    max-width: none;
+    display: block;
+    opacity: 0.95;
     transition: opacity 0.3s, transform 0.4s;
   }
   .gallery-item:hover img { opacity: 1; transform: scale(1.03); }
@@ -1013,6 +1015,7 @@
     section, .platform, .brotherhood, .cta-section, .about, footer { padding: 4rem 1.5rem; }
     .vision { padding: 5rem 1.5rem; }
     .gallery-header, .gallery-scroll { padding: 0 1.5rem; }
+    .gallery-scroll { height: 280px; }
     .platform-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
     .platform-grid { grid-template-columns: 1fr; }
     .platform-card { padding: 2rem; }
@@ -1287,7 +1290,7 @@
 <div class="about reveal" id="about">
   <div class="about-visual">
     <div class="about-img-wrap">
-      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/IMG_9511.jpg" alt="Tommy Atkins" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
+      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/IMG_9511.HEIC" alt="Tommy Atkins" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
       <div class="about-img-label">Tommy Atkins · GIL</div>
     </div>
     <div class="about-img-deco"></div>
