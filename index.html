@@ -758,16 +758,17 @@
   }
   .about-img-label {
     position: absolute;
-    bottom: 1.5rem;
-    left: -1.5rem;
+    bottom: 0;
+    left: 0;
     background: var(--black);
     color: var(--gold);
-    padding: 0.85rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     writing-mode: horizontal-tb;
+    z-index: 2;
   }
   .about-credentials {
     margin-top: 2.5rem;
@@ -1291,9 +1292,9 @@
         <div class="ph-icon" style="font-size:3rem;">☖</div>
         <span>Photo of Tommy</span>
       </div>
+      <div class="about-img-label">Tommy Atkins · GIL</div>
     </div>
     <div class="about-img-deco"></div>
-    <div class="about-img-label">Tommy Atkins · GIL</div>
     <div class="about-credentials">
       <div class="cred-item">
         <span class="cred-label">Education</span>
