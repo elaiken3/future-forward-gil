@@ -545,13 +545,14 @@
     transition: transform 0.35s ease;
   }
   .platform-card:hover { background: #F2EDE1; }
+  .platform-card.gala-card:hover { background: var(--black); }
   .platform-card:hover::before { transform: scaleX(1); }
 
   .card-num {
     font-family: var(--serif);
     font-size: 4rem;
     font-weight: 700;
-    color: rgba(0,0,0,0.18);
+    color: rgba(0,0,0,0.28);
     line-height: 1;
     position: absolute;
     top: 1.5rem;
@@ -603,7 +604,7 @@
   .platform-card.dark:hover { background: #1A1A1A; }
   .platform-card.dark .card-title { color: var(--off-white); }
   .platform-card.dark .card-body { color: rgba(248,245,238,0.55); }
-  .platform-card.dark .card-num { color: rgba(201,168,76,0.35); }
+  .platform-card.dark .card-num { color: rgba(201,168,76,0.5); }
   .platform-card.dark .card-highlights li { color: rgba(248,245,238,0.8); }
   .platform-card.dark .card-highlights li::before { color: var(--gold); }
   .platform-card.dark::before { background: var(--gold); }
