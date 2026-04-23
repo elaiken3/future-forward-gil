@@ -551,7 +551,7 @@
     font-family: var(--serif);
     font-size: 4rem;
     font-weight: 700;
-    color: rgba(0,0,0,0.08);
+    color: rgba(0,0,0,0.18);
     line-height: 1;
     position: absolute;
     top: 1.5rem;
@@ -603,7 +603,7 @@
   .platform-card.dark:hover { background: #1A1A1A; }
   .platform-card.dark .card-title { color: var(--off-white); }
   .platform-card.dark .card-body { color: rgba(248,245,238,0.55); }
-  .platform-card.dark .card-num { color: rgba(255,255,255,0.06); }
+  .platform-card.dark .card-num { color: rgba(201,168,76,0.35); }
   .platform-card.dark .card-highlights li { color: rgba(248,245,238,0.8); }
   .platform-card.dark .card-highlights li::before { color: var(--gold); }
   .platform-card.dark::before { background: var(--gold); }
@@ -1011,41 +1011,6 @@
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  /* ─── QR CODE ─── */
-  .qr-section {
-    background: var(--cream);
-    padding: 5rem 6rem;
-    border-top: 1px solid rgba(201,168,76,0.2);
-  }
-  .qr-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    max-width: 900px;
-  }
-  .qr-text { flex: 1; }
-  .qr-code-wrap {
-    flex-shrink: 0;
-    text-align: center;
-    padding: 1.5rem;
-    background: var(--off-white);
-    border: 1.5px solid rgba(201,168,76,0.3);
-  }
-  .qr-code-wrap img { display: block; }
-  .qr-url {
-    margin-top: 0.75rem;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--mid);
-    text-transform: lowercase;
-  }
-  @media (max-width: 900px) {
-    .qr-section { padding: 4rem 1.5rem; }
-    .qr-inner { flex-direction: column; align-items: flex-start; gap: 2rem; }
   }
 
   /* ─── FOOTER ─── */
@@ -1513,24 +1478,6 @@
   </div>
 </div>
 
-<!-- QR CODE -->
-<div class="qr-section reveal">
-  <div class="qr-inner">
-    <div class="qr-text">
-      <div class="section-eyebrow">
-        <div class="line" style="background:var(--gold);"></div>
-        <span>Share the Campaign</span>
-      </div>
-      <h2 class="section-title" style="font-size:2rem;">Scan to view<br><em>this page.</em></h2>
-      <p style="font-size:0.9rem;color:var(--mid);line-height:1.7;max-width:340px;">Share with brothers, print for handouts, or screenshot for WhatsApp. The full platform is one scan away.</p>
-    </div>
-    <div class="qr-code-wrap">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0D0D0D&bgcolor=F8F5EE&data=https%3A%2F%2Felaiken3.github.io%2Ffuture-forward-gil%2F" alt="QR Code — Future Forward Campaign" width="200" height="200" />
-      <p class="qr-url">elaiken3.github.io/future-forward-gil</p>
-    </div>
-  </div>
-</div>
-
 <!-- CTA -->
 <div class="cta-section reveal" id="cta">
   <div class="cta-inner">
@@ -1544,7 +1491,7 @@
       Future Forward commits to placing GIL's execution in shared hands — so the chapter is not dependent on a few individuals, but powered by all of us together.
     </p>
     <div class="cta-buttons">
-      <a href="mailto:?" class="btn-primary">Support the Campaign</a>
+      <a href="https://forms.gle/71HU7j6eh3ATzmxA9" target="_blank" class="btn-primary">Support the Campaign</a>
       <a href="#platform" class="btn-outline">Read the Full Platform</a>
     </div>
   </div>
