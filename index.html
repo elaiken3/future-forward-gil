@@ -472,7 +472,7 @@
   /* Three pillars row */
   .pillars-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0;
     margin-top: 5rem;
     border-top: 1px solid rgba(201,168,76,0.2);
@@ -551,7 +551,7 @@
     font-family: var(--serif);
     font-size: 4rem;
     font-weight: 700;
-    color: rgba(201,168,76,0.15);
+    color: rgba(0,0,0,0.08);
     line-height: 1;
     position: absolute;
     top: 1.5rem;
@@ -595,6 +595,55 @@
     margin-top: 0.15rem;
     flex-shrink: 0;
   }
+
+  /* Dark card variant */
+  .platform-card.dark {
+    background: var(--black);
+  }
+  .platform-card.dark:hover { background: #1A1A1A; }
+  .platform-card.dark .card-title { color: var(--off-white); }
+  .platform-card.dark .card-body { color: rgba(248,245,238,0.55); }
+  .platform-card.dark .card-num { color: rgba(255,255,255,0.06); }
+  .platform-card.dark .card-highlights li { color: rgba(248,245,238,0.8); }
+  .platform-card.dark .card-highlights li::before { color: var(--gold); }
+  .platform-card.dark::before { background: var(--gold); }
+
+  /* Card stat blocks */
+  .card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding-top: 1.5rem;
+  }
+  .card-stats.light {
+    border-top-color: rgba(0,0,0,0.1);
+  }
+  .card-stat {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+  .card-stats.light .card-stat {
+    border-color: rgba(0,0,0,0.1);
+  }
+  .card-stat-num {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .card-stats.light .card-stat-num { color: var(--black); }
+  .card-stat-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.6);
+  }
+  .card-stats.light .card-stat-label { color: var(--mid); }
 
   /* Full-width gala card */
   .gala-card {
@@ -964,6 +1013,41 @@
     flex-wrap: wrap;
   }
 
+  /* ─── QR CODE ─── */
+  .qr-section {
+    background: var(--cream);
+    padding: 5rem 6rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .qr-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 900px;
+  }
+  .qr-text { flex: 1; }
+  .qr-code-wrap {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--off-white);
+    border: 1.5px solid rgba(201,168,76,0.3);
+  }
+  .qr-code-wrap img { display: block; }
+  .qr-url {
+    margin-top: 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    text-transform: lowercase;
+  }
+  @media (max-width: 900px) {
+    .qr-section { padding: 4rem 1.5rem; }
+    .qr-inner { flex-direction: column; align-items: flex-start; gap: 2rem; }
+  }
+
   /* ─── FOOTER ─── */
   footer {
     background: var(--black);
@@ -1025,8 +1109,8 @@
     .about-img-deco { display: none; }
     .bhood-grid { grid-template-columns: 1fr; gap: 3rem; }
     .brotherhood::after { font-size: 8rem; right: -1rem; opacity: 1; }
-    .pillars-row { grid-template-columns: 1fr; }
-    .pillar { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .pillars-row { grid-template-columns: 1fr 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1.5rem 1rem; }
     .outcomes-grid { grid-template-columns: 1fr; }
     .cta-buttons { flex-direction: column; align-items: stretch; }
     footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 2rem 1.5rem; }
@@ -1069,10 +1153,6 @@
       <span class="italic">Forward.</span>
     </h1>
     <p class="hero-sub">A campaign built on <strong>lived chapter experience</strong> and a clear-eyed vision for a more structured, visible, and impact-driven Gamma Iota Lambda.</p>
-    <div class="hero-actions">
-      <a href="#platform" class="btn-primary">View the Platform</a>
-      <a href="#about" class="btn-outline">Meet Tommy</a>
-    </div>
     <div class="candidate-badge">
       <div>
         <div class="badge-name">Tommy Atkins</div>
@@ -1083,7 +1163,7 @@
 
   <div class="hero-right">
     <div class="headshot-wrap">
-      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/tommy-headshot.jpg" alt="Tommy Atkins" />
+      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/IMG_9511.jpg" alt="Tommy Atkins" />
     </div>
     <div class="corner-deco"></div>
     <div class="hero-gold-bar"></div>
@@ -1123,16 +1203,24 @@
     <p class="vision-attr">— Future Forward Platform, Tommy Atkins</p>
     <div class="pillars-row">
       <div class="pillar">
-        <span class="pillar-num">81st</span>
-        <span class="pillar-label">Anniversary &amp; Beyond</span>
-      </div>
-      <div class="pillar">
         <span class="pillar-num">$75K</span>
         <span class="pillar-label">Fundraising Commitment</span>
       </div>
       <div class="pillar">
+        <span class="pillar-num">+50%</span>
+        <span class="pillar-label">Reclaimed Brother Engagement</span>
+      </div>
+      <div class="pillar">
         <span class="pillar-num">5×</span>
         <span class="pillar-label">Platform Pillars</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">2</span>
+        <span class="pillar-label">Net New Dedicated Committees</span>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">81st</span>
+        <span class="pillar-label">Anniversary &amp; Beyond</span>
       </div>
     </div>
   </div>
@@ -1155,33 +1243,52 @@
 
   <div class="platform-grid">
 
-    <!-- Card 1 -->
-    <div class="platform-card">
+    <!-- Card 1: Fundraising — DARK -->
+    <div class="platform-card dark">
       <span class="card-num">01</span>
-      <h3 class="card-title">Committee Excellence &amp; Shared Ownership</h3>
-      <p class="card-body">A structured, accountable, and collaborative system for committee work — where every brother contributes meaningfully to chapter execution.</p>
-      <ul class="card-highlights">
-        <li>Clear roles and responsibilities across all committees</li>
-        <li>Monthly progress checkpoints and post-event recaps</li>
-        <li>Special Events Committee for MLK Day of Service &amp; Juneteenth Gala</li>
-        <li>Cross-committee collaboration to align service, social &amp; education efforts</li>
-      </ul>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="platform-card">
-      <span class="card-num">02</span>
       <h3 class="card-title">$75K Fundraising Commitment &amp; Revenue Strategy</h3>
-      <p class="card-body">A structured model to grow GIL's financial capacity through grants, corporate partnerships, and experiential fundraising — 7.5× growth from 2026 to 2027.</p>
-      <ul class="card-highlights">
+      <p class="card-body">A structured model to grow GIL's financial capacity through grants, corporate partnerships, and experiential fundraising — <strong>7.5× growth</strong> from 2026 to 2027.</p>
+      <div class="card-stats">
+        <div class="card-stat">
+          <div class="card-stat-num">7.5×</div>
+          <div class="card-stat-label">Fundraising Growth</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-stat-num">$75K</div>
+          <div class="card-stat-label">2027 Target</div>
+        </div>
+      </div>
+      <ul class="card-highlights" style="margin-top:1.5rem;">
         <li>MLK Day of Service Sponsorship: $5,000</li>
         <li>Social Event Series (2 events): $20,000</li>
-        <li>Grants from Wells Fargo, BofA, Citi &amp; Rockefeller Foundations</li>
-        <li>Year-over-year growth of 30–40% with dedicated Fundraising Committee</li>
+        <li>Juneteenth Go-To-College Gala: $30,000</li>
+        <li>Grants &amp; institutional funding: $20,000+</li>
       </ul>
     </div>
 
-    <!-- Card 3 (full width - Gala) -->
+    <!-- Card 2: Committee Excellence — LIGHT -->
+    <div class="platform-card">
+      <span class="card-num">02</span>
+      <h3 class="card-title">Committee Excellence &amp; Shared Ownership</h3>
+      <p class="card-body">A structured, accountable system for committee work — where every brother contributes meaningfully to chapter execution through shared ownership.</p>
+      <div class="card-stats light">
+        <div class="card-stat">
+          <div class="card-stat-num">2×</div>
+          <div class="card-stat-label">Net New Committees</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-stat-num">SE + F</div>
+          <div class="card-stat-label">Special Events &amp; Fundraising</div>
+        </div>
+      </div>
+      <ul class="card-highlights" style="margin-top:1.5rem;">
+        <li>Clear roles and responsibilities across all committees</li>
+        <li>Monthly progress checkpoints and post-event recaps</li>
+        <li>Cross-committee collaboration to align service, social &amp; education</li>
+      </ul>
+    </div>
+
+    <!-- Card 3: Juneteenth Gala — DARK, full width -->
     <div class="platform-card gala-card">
       <div>
         <span class="card-num" style="position:static;font-size:3rem;color:rgba(201,168,76,0.2);margin-bottom:1rem;display:block;">03</span>
@@ -1214,28 +1321,46 @@
       </div>
     </div>
 
-    <!-- Card 4 -->
+    <!-- Card 4: Leadership — LIGHT -->
     <div class="platform-card">
       <span class="card-num">04</span>
       <h3 class="card-title">Leadership Continuity &amp; Next Gen Development</h3>
       <p class="card-body">Sustainable chapters are built when leadership is continuously developed, not repeatedly reset. Building the next generation with intention.</p>
-      <ul class="card-highlights">
+      <div class="card-stats light">
+        <div class="card-stat">
+          <div class="card-stat-num">+50%</div>
+          <div class="card-stat-label">Reclaimed Brother Engagement</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-stat-num">YoY</div>
+          <div class="card-stat-label">Year Over Year Growth</div>
+        </div>
+      </div>
+      <ul class="card-highlights" style="margin-top:1.5rem;">
         <li>Structured leadership transition systems across roles</li>
         <li>Mentorship and readiness pathways for new brothers</li>
-        <li>50% increase in reclaimed brother engagement year over year</li>
         <li>Leadership development embedded into committee structure</li>
       </ul>
     </div>
 
-    <!-- Card 5 -->
-    <div class="platform-card">
+    <!-- Card 5: Brand Elevation — DARK -->
+    <div class="platform-card dark">
       <span class="card-num">05</span>
       <h3 class="card-title">Brand Elevation &amp; Chapter Visibility</h3>
       <p class="card-body">Our chapter's impact is only as strong as its ability to be understood, recognized, and respected. Elevating how GIL is seen internally and externally.</p>
-      <ul class="card-highlights">
+      <div class="card-stats">
+        <div class="card-stat">
+          <div class="card-stat-num">5–8</div>
+          <div class="card-stat-label">External Partnerships</div>
+        </div>
+        <div class="card-stat">
+          <div class="card-stat-num">1×</div>
+          <div class="card-stat-label">Brand Guidelines Doc</div>
+        </div>
+      </div>
+      <ul class="card-highlights" style="margin-top:1.5rem;">
         <li>Standardized communication and presentation systems</li>
-        <li>5–8 external partnerships annually</li>
-        <li>Elevated professionalism across all chapter outputs</li>
+        <li>Brand guidelines document for digital visibility &amp; events alignment</li>
         <li>A unified identity rooted in excellence, unity, and pride</li>
       </ul>
     </div>
@@ -1290,7 +1415,7 @@
 <div class="about reveal" id="about">
   <div class="about-visual">
     <div class="about-img-wrap">
-      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/IMG_9511.jpg" alt="Tommy Atkins" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
+      <img src="https://raw.githubusercontent.com/elaiken3/future-forward-gil/main/assets/tommy-headshot.jpg" alt="Tommy Atkins" style="width:100%;height:100%;object-fit:cover;object-position:top center;" />
       <div class="about-img-label">Tommy Atkins · GIL</div>
     </div>
     <div class="about-img-deco"></div>
@@ -1384,6 +1509,24 @@
           <div class="outcome-text"><strong>Elevated Presence</strong>5–8 external partnerships, standardized communications, and a GIL identity that commands respect.</div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- QR CODE -->
+<div class="qr-section reveal">
+  <div class="qr-inner">
+    <div class="qr-text">
+      <div class="section-eyebrow">
+        <div class="line" style="background:var(--gold);"></div>
+        <span>Share the Campaign</span>
+      </div>
+      <h2 class="section-title" style="font-size:2rem;">Scan to view<br><em>this page.</em></h2>
+      <p style="font-size:0.9rem;color:var(--mid);line-height:1.7;max-width:340px;">Share with brothers, print for handouts, or screenshot for WhatsApp. The full platform is one scan away.</p>
+    </div>
+    <div class="qr-code-wrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0D0D0D&bgcolor=F8F5EE&data=https%3A%2F%2Felaiken3.github.io%2Ffuture-forward-gil%2F" alt="QR Code — Future Forward Campaign" width="200" height="200" />
+      <p class="qr-url">elaiken3.github.io/future-forward-gil</p>
     </div>
   </div>
 </div>
